@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:getx_package/my_home_page.dart';
 import 'package:get/get.dart';
+import 'helper/init_controller.dart' as di;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); // to make sure that our dependency has sbeen initialized
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -12,7 +16,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp( // used Get before Material App so that we can use Getx packages for routing 
+    return GetMaterialApp(
+      // used Get before Material App so that we can use Getx packages for routing
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.

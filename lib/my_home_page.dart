@@ -9,8 +9,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TapController controller =
-        Get.put(TapController()); // this is known as dependency injection
+    TapController controller = Get.find();
+    // TapController controller = Get.put(TapController());
+    // moved this to helper/init_controller
+    // this is known as dependency injection
     // called the TapController using Getx, with the help of this we can access the properties i.e. x and increaseX()
     return Scaffold(
       body: Container(
